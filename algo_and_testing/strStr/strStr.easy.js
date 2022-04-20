@@ -31,4 +31,18 @@ Constraints:
 haystack and needle consist of only lowercase English characters.
  */
 
-const strStr = function (haystack, needle) {};
+const strStr = function (haystack, needle) {
+  haystack = haystack.toLowerCase();
+  needle = needle.toLowerCase();
+
+  const temp = haystack.split(needle);
+
+  return temp.length === 1 ? -1 : temp[0].length;
+};
+
+// console.log(strStr("hello", "ll"));
+// console.log(strStr("hellollo", "lo"));
+// console.log(strStr("hellollo", "l"));
+// console.log(strStr("hellollo", "x"));
+
+module.exports = strStr;

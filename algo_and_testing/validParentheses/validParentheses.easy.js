@@ -23,4 +23,28 @@ Example 3:
 Input: s = "(]"
 Output: false
  */
-const isValid = function (s) {};
+const isValid = function (s) {
+  const arr = [];
+
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === "{" || s[i] === "[" || s[i] === "(") {
+      arr.push(s[i]);
+    } else if (s[i] === "}" || s[i] === "]" || s[i] === ")") {
+      if (
+        (s[i] === "}" && arr.pop() !== "{") ||
+        (s[i] === ")" && arr.pop() !== "(") ||
+        (s[i] === "]" && arr.pop() !== "[")
+      ) {
+        return false;
+      }
+    }
+  }
+  return arr.length ? false : true;
+};
+
+// console.log(isValid("(())"));
+// console.log(isValid("(()]"));
+// console.log(isValid("([()])"));
+// console.log(isValid("([{}()])}"));
+
+module.exports = isValid;

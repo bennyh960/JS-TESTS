@@ -40,4 +40,39 @@ Output: 1994
 Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
  */
 
-const romanToInt = function (s) {};
+// s = s.toUpperCase();
+const romanToInt = function (s) {
+  const dict = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000,
+    exceptions: {
+      IV: 4,
+      IX: 9,
+      XL: 40,
+      XC: 90,
+      CD: 400,
+      CM: 900,
+    },
+  };
+
+  let res = 0;
+  let except;
+
+  for (let i = 0; i < s.length; i++) {
+    except = s[i] + s[i + 1];
+    // dict.exceptions[except] !== undefined ? (res += dict.exceptions[except] - dict[s[i + 1]]) : (res += dict[s[i]]);
+    dict.exceptions[except] !== undefined ? (res += dict.exceptions[except]) && i++ : (res += dict[s[i]]);
+  }
+  return res;
+};
+
+// console.log(romanToInt("III"));
+// console.log(romanToInt("LVIII"));
+// console.log(romanToInt("MCMXCIV"));
+
+module.exports = romanToInt;

@@ -52,7 +52,7 @@ const searchInsert = function (nums, target) {
     }
   }
 
-  console.log("target not in nums but in range");
+  // console.log("target not in nums but in range");
   return mid;
 };
 

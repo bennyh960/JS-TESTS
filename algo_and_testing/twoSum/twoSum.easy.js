@@ -26,4 +26,19 @@ Input: nums = [3,3], target = 6
 Output: [0,1]}
  */
 
-const twoSum = function (nums, target) {};
+// O(n^2)
+const twoSum = function (nums, target) {
+  const arr = [];
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      if (target - nums[i] - nums[j] === 0) {
+        arr.push(i);
+        arr.push(j);
+        return arr;
+      }
+    }
+  }
+  return null;
+};
+
+module.exports = twoSum;

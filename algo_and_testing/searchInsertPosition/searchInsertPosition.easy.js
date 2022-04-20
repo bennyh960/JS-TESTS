@@ -30,4 +30,35 @@ Constraints:
 nums contains distinct values sorted in ascending order.
 -104 <= target <= 104
  */
-const searchInsert = function (nums, target) {};
+const searchInsert = function (nums, target) {
+  let left = 0;
+  let right = nums.length - 1;
+  let mid;
+
+  // target out of num range
+  if (target > nums[right]) {
+    return right + 1;
+  }
+  if (target < nums[0]) {
+    return 0;
+  }
+
+  while (left <= right) {
+    mid = parseInt((left + right) / 2);
+    target < nums[mid] ? (right = mid - 1) : (left = mid + 1);
+    if (target === nums[mid]) {
+      // console.log("here");
+      return mid;
+    }
+  }
+
+  console.log("target not in nums but in range");
+  return mid;
+};
+
+module.exports = searchInsert;
+
+// const arr = [1, 2, 3, 4, 5];
+// const arr = [2, 4, 6, 8];
+// console.log(searchInsert(arr, 7));
+// console.log(searchInsert(arr, 3));

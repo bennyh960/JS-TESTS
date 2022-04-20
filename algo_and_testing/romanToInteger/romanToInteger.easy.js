@@ -71,8 +71,4 @@ const romanToInt = function (s) {
   return res;
 };
 
-// console.log(romanToInt("III"));
-// console.log(romanToInt("LVIII"));
-// console.log(romanToInt("MCMXCIV"));
-
 module.exports = romanToInt;
